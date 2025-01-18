@@ -9,7 +9,6 @@ import '../styles/Dashboard.css';
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      <Sidebar />
       <main>
         <DashboardHeader />
         <div className="stats-grid">
