@@ -1,13 +1,5 @@
 import React from "react";
 
-export const ComplianceTracker = () => {
-    return (
-        <div className="complianceTracker">
-            <h1>Compliance Tracker</h1>
-        </div>
-    );
-};
-
 export const ComplianceTrackerList = () => {
     return (
         <div className="complianceTrackerList">

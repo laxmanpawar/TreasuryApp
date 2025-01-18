@@ -1,90 +1,144 @@
 // Desc: Sidebar component for the dashboard
 
 import React, { useState } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
+import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { SidebarData } from "./SidebarData";
-import SubMenu from "./SubMenu";
-import { IconContext } from "react-icons/lib";
+import SidebarMenu from "./SidebarMenu";
+import { AnimatePresence, motion } from "framer-motion";
 
-const Nav = styled.div`
-        background: #15171c;
-        height: 80px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    `;
+const Sidebar = ({ children }) => {
+    const [isOpen, setIsOpen] = useState(true);
+    const toggle = () => setIsOpen(!isOpen);
 
-const NavIcon = styled(Link)`
-        margin-left: 2rem;
-        font-size: 2rem;
-        height: 80px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    `;
+    const inputAnimation = {
+        hidden: {
+            width: 0,
+            padding: 0,
+            transition: {
+                duration: 0.2,
+            },
+        },
+        show: {
+            width: "140px",
+            padding: "5px 15px",
+            transition: {
+                duration: 0.2,
+            },
+        },
+    };
 
-const SidebarNav = styled.nav`
-        background: #15171c;
-        width: 250px;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-        left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
-        transition: 350ms;
-        z-index: 10;
-    `;
-
-const SidebarWrap = styled.div`
-        width: 100%;
-    `;
-
-const Sidebar = () => {
-    const [sidebar, setSidebar] = useState(false);
-
-    const showSidebar = () => setSidebar(!sidebar);
+    const showAnimation = {
+        hidden: {
+            width: 0,
+            opacity: 0,
+            transition: {
+                duration: 0.5,
+            },
+        },
+        show: {
+            opacity: 1,
+            width: "auto",
+            transition: {
+                duration: 0.5,
+            },
+        },
+    };
 
     return (
         <>
-            <IconContext.Provider value={{ color: "#fff" }}>
-                <Nav>
-                    <NavIcon to="#">
-                        <FaIcons.FaBars
-                            onClick={showSidebar}
-                        />
-                    </NavIcon>
-                    <h1
-                        style={{
-                            textAlign: "center",
-                            marginLeft: "200px",
-                            color: "green",
-                        }}
-                    >
-                        Dashboard
-                    </h1>
-                </Nav>
-                <SidebarNav sidebar={sidebar}>
-                    <SidebarWrap>
-                        <NavIcon to="#">
-                            <AiIcons.AiOutlineClose
-                                onClick={showSidebar}
-                            />
-                        </NavIcon>
-                        {SidebarData.map((item, index) => {
-                            return (
-                                <SubMenu
-                                    item={item}
-                                    key={index}
+            <div className="main-container">
+                <motion.div
+                    animate={{
+                        width: isOpen ? "200px" : "45px",
+
+                        transition: {
+                            duration: 0.5,
+                            type: "spring",
+                            damping: 15,
+                        },
+                    }}
+                    className={`sidebar `}
+                >
+                    <div className="top_section">
+                        <AnimatePresence>
+                            {isOpen && (
+                                <motion.h1
+                                    variants={showAnimation}
+                                    initial="hidden"
+                                    animate="show"
+                                    exit="hidden"
+                                    className="logo"
+                                >
+                                    VITTI
+                                </motion.h1>
+                            )}
+                        </AnimatePresence>
+
+                        <div className="bars">
+                            <FaIcons.FaBars onClick={toggle} />
+                        </div>
+                    </div>
+                    <div className="search">
+                        <div className="search_icon">
+                            <BiSearch />
+                        </div>
+                        <AnimatePresence>
+                            {isOpen && (
+                                <motion.input
+                                    initial="hidden"
+                                    animate="show"
+                                    exit="hidden"
+                                    variants={inputAnimation}
+                                    type="text"
+                                    placeholder="Search"
                                 />
+                            )}
+                        </AnimatePresence>
+                    </div>
+                    <section className="routes">
+                        {SidebarData.map((route, index) => {
+                            if (route.subRoutes) {
+                                return (
+                                    <SidebarMenu
+                                        setIsOpen={setIsOpen}
+                                        route={route}
+                                        showAnimation={showAnimation}
+                                        isOpen={isOpen}
+                                    />
+                                );
+                            }
+
+                            return (
+                                <NavLink
+                                    to={route.path}
+                                    key={index}
+                                    className="link"
+                                    activeClassName="active"
+                                >
+                                    <div className="icon">{route.icon}</div>
+                                    <AnimatePresence>
+                                        {isOpen && (
+                                            <motion.div
+                                                variants={showAnimation}
+                                                initial="hidden"
+                                                animate="show"
+                                                exit="hidden"
+                                                className="link_text"
+                                            >
+                                                {route.name}
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </NavLink>
                             );
                         })}
-                    </SidebarWrap>
-                </SidebarNav>
-            </IconContext.Provider>
+                    </section>
+                </motion.div>
+
+                <main>{children}</main>
+            </div>
         </>
     );
 };

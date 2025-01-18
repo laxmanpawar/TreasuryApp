@@ -1,5 +1,4 @@
 import React from 'react';
-import Sidebar from '../components/Sidebar';
 import DashboardHeader from '../components/DashboardHeader';
 import StatsCard from '../components/StatsCard';
 import ChartFrame from '../components/ChartFrame';
@@ -17,8 +16,8 @@ const Dashboard = () => {
           <StatsCard title="Previous Day Outflows" value="3,360.50" change="↓ 8.5% from yesterday" color="orange" />
         </div>
 
-        <ChartFrame title="Cash Flow Movement">
-          <CashFlowChart />
+        <ChartFrame title="Cash Flow Movement" className="chart-frame">
+          <CashFlowChart className="cash-flow-chart" />
         </ChartFrame>
       </main>
     </div>

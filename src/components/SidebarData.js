@@ -8,73 +8,73 @@ import * as GrIcons from "react-icons/gr";
 
 export const SidebarData = [
     {
-        title: "Dashboard",
-        path: "/dashboard",
+        name: "Dashboard",
+        path: "/",
         icon: <MdIcons.MdDashboard />,
     },
     {
-        title: "Fund Position",
+        name: "Fund Position",
         path: "/fundPosition",
         icon: <AiIcons.AiFillHome />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
 
-        subNav: [
+        subRoutes: [
             {
-                title: "Bankwise Balance",
+                name: "Bankwise Balance",
                 path: "/fundPosition/bankwiseBalance",
                 icon: <CiIcons.CiBank />,
             },
             {
-                title: "Cash Inflows and Outflows",
+                name: "Cash Inflows and Outflows",
                 path: "/fundPosition/cashInflowsOutflows",
                 icon: <IoIcons.IoIosPaper />,
             },
         ],
     },
     {
-        title: "Cash Flows",
+        name: "Cash Flows",
         path: "/cashFlows",
         icon: <IoIcons.IoIosPaper />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
 
-        subNav: [
+        subRoutes: [
             {
-                title: "Daily Cash Flow Planning",
+                name: "Daily Cash Flow Planning",
                 path: "/cashFlows/dailyCashFlowPlanning",
                 icon: <IoIcons.IoIosPaper />,
                 cName: "sub-nav",
             },
             {
-                title: "Historical Cash Flow",
+                name: "Historical Cash Flow",
                 path: "/cashFlows/historicalCashFlow",
                 icon: <IoIcons.IoIosPaper />,
                 cName: "sub-nav",
             },
             {
-                title: "Projected Cash Flow",
-                path: "/cashFlows/projectedCashFlow",
+                name: "Projected Cash Flow",
+                path: "/cashFlows/projectedCashFlows",
                 icon: <IoIcons.IoIosPaper />,
             },
         ],
     },
     {
-        title: "Compliance Tracker",
+        name: "Compliance Tracker",
         path: "/complianceTracker",
         icon: <GrIcons.GrCompliance />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
 
-        subNav: [
+        subRoutes: [
             {
-                title: "compliance Tracker",
+                name: "compliance Tracker",
                 path: "/complianceTracker/complianceCards",
                 icon: <IoIcons.IoIosPaper />,
                 cName: "sub-nav",
             },
             {
-                title: "Complicance List",
+                name: "Complicance List",
                 path: "/compliance/complianceList",
                 icon: <IoIcons.IoIosPaper />,
                 cName: "sub-nav",
@@ -82,8 +82,8 @@ export const SidebarData = [
         ],
     },
     {
-        title: "Contact Us",
-        path: "/contactUs",
+        name: "About Us",
+        path: "/aboutUs",
         icon: <IoIcons.IoMdHelpCircle />,
     },
 ];

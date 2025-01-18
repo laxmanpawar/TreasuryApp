@@ -1,13 +1,5 @@
 import React from "react";
 
-export const FundPosition = () => {
-    return (
-        <div className="fundPosition">
-            <h1>Fund Position</h1>
-        </div>
-    );
-};
-
 export const BankwiseBalance = () => {
     return (
         <div className="bankwise">

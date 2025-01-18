@@ -1,4 +1,4 @@
-// Desc: This file contains the SubMenu component which is used to render the sub menu items in the sidebar.
+// Desc: Deprecated Use SidebarMenu component This file contains the SubMenu component which is used to render the sub menu items in the sidebar.
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
