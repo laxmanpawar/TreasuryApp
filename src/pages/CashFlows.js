@@ -1,8 +1,9 @@
 import React from "react";
+import '../App.css';
 
 export const DailyCashFlowPlanning = () => {
     return (
-        <div className="dailyCashFlowPlanning">
+        <div className="rightPage">
             <h1>Daily Cash Flow Planning</h1>
         </div>
     );
@@ -10,7 +11,7 @@ export const DailyCashFlowPlanning = () => {
 
 export const HistoricalCashFlow = () => {
     return (
-        <div className="historicalCashFlow">
+        <div className="rightPage">
             <h1>Historical Cash Flow</h1>
         </div>
     );
@@ -18,7 +19,7 @@ export const HistoricalCashFlow = () => {
 
 export const ProjectedCashFlows = () => {
     return (
-        <div className="projectedCashFlows">
+        <div className="rightPage">
             <h1>Projected Cash Flows</h1>
         </div>
     );

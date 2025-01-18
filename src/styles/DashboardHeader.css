@@ -3,14 +3,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: #176ebf;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .date-display {
     margin-right: 15px;
     font-size: 16px;
-    color: #333;
+    color: white;
     font-weight: 500;
 }
 
@@ -19,23 +19,21 @@
     align-items: center;
 }
 
+.header-title {
+    color: white;
+}
+
 .icon-button {
     background: none;
-    border: none;
     cursor: pointer;
     margin-right: 10px;
     padding: 0;
     width: 40px;
     height: 40px;
-    border-radius: 20%;
+    border-radius: 30%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 2px solid #ddd;
 }
-
-/* .icon-button .icon {
-    width: 24px;
-    height: 24px;
-} */

@@ -13,12 +13,11 @@ const DashboardHeader = () => {
 
   return (
     <header className="header">
-      <div>
+      <div className="header-title">
         <h2>Dashboard</h2>
       </div>
       <div className="profile-section">
         <span className="date-display">{today}</span>
-        {/* Button with embedded SVG icon */}
         <button className="icon-button">
           <NotificationIcon className="icon" />
         </button>

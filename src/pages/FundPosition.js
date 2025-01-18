@@ -1,8 +1,9 @@
 import React from "react";
+import '../App.css';
 
 export const BankwiseBalance = () => {
     return (
-        <div className="bankwise">
+        <div className="rightPage">
             <h1>Bankwise Balance</h1>
         </div>
     );
@@ -10,7 +11,7 @@ export const BankwiseBalance = () => {
 
 export const CashInflowsOutflows = () => {
     return (
-        <div className="cashInflowsOutflows">
+        <div className="rightPage">
             <h1>Cash Inflows Outflows</h1>
         </div>
     );
