@@ -1,5 +1,6 @@
 import React from "react";
 import '../App.css';
+import InflowOutflowChart from '../components/InflowOutflowChart';
 
 export const BankwiseBalance = () => {
     return (
@@ -12,7 +13,7 @@ export const BankwiseBalance = () => {
 export const CashInflowsOutflows = () => {
     return (
         <div className="rightPage">
-            <h1>Cash Inflows Outflows</h1>
+            <InflowOutflowChart />
         </div>
     );
 };
