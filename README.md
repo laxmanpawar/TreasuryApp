@@ -1,4 +1,4 @@
-# TreasuryApp
+# TreasuryApp 
 This is the frontend for the TreasuryAutomation project.
 
 # Getting Started with Create React App
